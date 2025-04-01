@@ -2,15 +2,19 @@
   "name": "nodejs-redis-demo",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "mongoose": "^8.13.1",
     "redis": "^4.7.0"
   }
 }
