@@ -1,36 +1,36 @@
 # Node.js Redis & MongoDB Demo
 
-Bu proje, Node.js kullanarak Redis önbelleği ve MongoDB veritabanı entegrasyonunu gösteren bir REST API uygulamasıdır.
+A REST API application demonstrating Redis caching and MongoDB database integration using Node.js.
 
-## 🚀 Özellikler
+## 🚀 Features
 
-- Express.js ile REST API
-- MongoDB veritabanı entegrasyonu
-- Redis önbelleği ile performans optimizasyonu
-- CRUD operasyonları
-- Örnek ürün verileri ile test imkanı
+- REST API with Express.js
+- MongoDB database integration
+- Performance optimization with Redis caching
+- CRUD operations
+- Test data with sample products
 
-## 📋 Gereksinimler
+## 📋 Prerequisites
 
-- Node.js (v14 veya üzeri)
+- Node.js (v14 or higher)
 - MongoDB
 - Redis
-- npm veya yarn
+- npm or yarn
 
-## 🛠️ Kurulum
+## 🛠️ Installation
 
-1. Projeyi klonlayın:
+1. Clone the project:
 ```bash
 git clone https://github.com/yourusername/nodejs-redis-demo.git
 cd nodejs-redis-demo
 ```
 
-2. Bağımlılıkları yükleyin:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. `.env` dosyasını oluşturun ve gerekli değişkenleri ayarlayın:
+3. Create `.env` file and set required variables:
 ```env
 MONGODB_CONNECTION=mongodb://localhost:27017/your_database
 NODE_ENV=development
@@ -38,24 +38,24 @@ PORT=3000
 REDIS_URL=redis://localhost:6379
 ```
 
-4. Uygulamayı başlatın:
+4. Start the application:
 ```bash
 npm run dev
 ```
 
 ## 🔌 API Endpoints
 
-### Ürün İşlemleri
+### Product Operations
 
-- `GET /api/products` - Tüm ürünleri getir (Redis önbellekli)
-- `GET /api/products/:id` - ID'ye göre ürün getir (Redis önbellekli)
-- `POST /api/products` - Yeni ürün ekle
-- `PUT /api/products/:id` - Ürün güncelle
-- `DELETE /api/products/:id` - Ürün sil
-- `DELETE /api/products` - Tüm ürünleri sil
-- `POST /api/products/insert-dummy` - Örnek ürün verilerini ekle
+- `GET /api/products` - Get all products (Redis cached)
+- `GET /api/products/:id` - Get product by ID (Redis cached)
+- `POST /api/products` - Create new product
+- `PUT /api/products/:id` - Update product
+- `DELETE /api/products/:id` - Delete product
+- `DELETE /api/products` - Delete all products
+- `POST /api/products/insert-dummy` - Insert sample product data
 
-## 🏗️ Proje Yapısı
+## 🏗️ Project Structure
 
 ```
 src/
@@ -74,15 +74,15 @@ src/
 └── index.js
 ```
 
-## 🔄 Redis Önbellek Stratejisi
+## 🔄 Redis Cache Strategy
 
-- GET istekleri için 1 dakikalık önbellek
-- POST, PUT, DELETE işlemlerinde ilgili önbellek otomatik temizlenir
-- Ürün listesi ve tekil ürünler için ayrı önbellek anahtarları
+- 1-minute cache for GET requests
+- Automatic cache invalidation on POST, PUT, DELETE operations
+- Separate cache keys for product list and individual products
 
-## 🧪 Test
+## 🧪 Testing
 
-Örnek ürün verilerini eklemek için:
+To insert sample product data:
 ```bash
 curl -X POST http://localhost:3000/api/products/insert-dummy
 ```
